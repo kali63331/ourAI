@@ -1,0 +1,23 @@
+project_id = "cfwwbggwrspyksridsea"
+
+[functions.python-ai-huggingface]
+verify_jwt = true
+
+[functions.python-ai-chat]
+verify_jwt = true
+
+[functions.python-ai-openai]
+verify_jwt = true
+
+[functions.python-ai-enhanced]
+verify_jwt = true
+
+[functions.image-analysis]
+verify_jwt = true
+
+[functions.voice-to-text]
+verify_jwt = true
+
+[functions.voice-conversation]
+verify_jwt = true
+
