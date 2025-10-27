@@ -1,0 +1,323 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Modern futuristic theme with neon accents */
+    --background: 222 47% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 6%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 6%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Futuristic neon colors */
+    --primary: 271 91% 65%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 271 91% 75%;
+    --neon-cyan: 184 100% 50%;
+    --neon-pink: 330 100% 60%;
+    --neon-purple: 271 91% 65%;
+    --neon-blue: 217 91% 60%;
+
+    --secondary: 222 47% 11%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 271 91% 65%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 217 33% 17%;
+    --input: 222 47% 11%;
+    --ring: 271 91% 65%;
+
+    /* Futuristic neon gradients */
+    --gradient-python: linear-gradient(135deg, hsl(271 91% 65%) 0%, hsl(184 100% 50%) 50%, hsl(330 100% 60%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(222 47% 4%) 0%, hsl(271 91% 15%) 30%, hsl(184 100% 15%) 70%, hsl(330 100% 15%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(222 47% 6%) 0%, hsl(271 91% 10%) 50%, hsl(184 100% 10%) 100%);
+    --gradient-chat: linear-gradient(180deg, hsl(222 47% 4%) 0%, hsl(222 47% 6%) 100%);
+    --gradient-message: linear-gradient(135deg, hsl(271 91% 65%) 0%, hsl(271 91% 75%) 100%);
+    --gradient-bot: linear-gradient(135deg, hsl(184 100% 50%) 0%, hsl(330 100% 60%) 100%);
+    
+    /* Enhanced neon shadows */
+    --shadow-python: 0 8px 32px -8px hsl(271 91% 65% / 0.4);
+    --shadow-glow: 0 0 40px hsl(271 91% 65% / 0.6);
+    --shadow-cyan: 0 8px 32px -8px hsl(184 100% 50% / 0.4);
+    --shadow-pink: 0 8px 32px -8px hsl(330 100% 60% / 0.4);
+    --shadow-subtle: 0 2px 12px hsl(222 47% 4% / 0.5);
+    --shadow-intense: 0 20px 80px -20px hsl(271 91% 65% / 0.5);
+    
+    /* Chat styling */
+    --chat-user: 200 100% 60%;
+    --chat-assistant: 220 13% 15%;
+    --chat-radius: 1.25rem;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 13% 7%;
+    --foreground: 220 9% 98%;
+
+    --card: 220 13% 9%;
+    --card-foreground: 220 9% 98%;
+
+    --popover: 220 13% 9%;
+    --popover-foreground: 220 9% 98%;
+
+    --primary: 200 100% 65%;
+    --primary-foreground: 220 13% 7%;
+
+    --secondary: 220 13% 12%;
+    --secondary-foreground: 220 9% 98%;
+
+    --muted: 220 13% 12%;
+    --muted-foreground: 220 9% 60%;
+
+    --accent: 220 13% 12%;
+    --accent-foreground: 220 9% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 220 9% 98%;
+
+    --border: 220 13% 15%;
+    --input: 220 13% 12%;
+    --ring: 200 100% 65%;
+
+    /* Enhanced dark gradients */
+    --gradient-chat: linear-gradient(180deg, hsl(220 13% 7%) 0%, hsl(220 13% 9%) 100%);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  /* Animation keyframes */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px hsl(var(--primary) / 0.3); }
+    50% { box-shadow: 0 0 40px hsl(var(--primary) / 0.6); }
+  }
+  
+  @keyframes slide-up {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  @keyframes slide-in-left {
+    from { transform: translateX(-20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  @keyframes slide-in-right {
+    from { transform: translateX(20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes scale-in {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  
+  @keyframes bounce-subtle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  
+  @keyframes rotate-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* Mobile-first responsive design */
+  html {
+    font-size: 16px;
+    /* Prevent text size adjustment on mobile */
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    /* Better touch scrolling */
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    /* Prevent pull-to-refresh on mobile */
+    overscroll-behavior-y: none;
+    /* Better font rendering on mobile */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  * {
+    @apply border-border;
+  }
+  
+  /* Mobile safe areas */
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  /* Touch-friendly button sizing */
+  button, [role="button"] {
+    min-height: 44px; /* iOS recommended touch target */
+    min-width: 44px;
+  }
+  
+  /* Better touch interactions */
+  input, textarea, select {
+    /* Prevent zoom on focus in iOS */
+    font-size: 16px;
+  }
+  
+  /* Animation utilities */
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  .animate-slide-up {
+    animation: slide-up 0.6s ease-out;
+  }
+  
+  .animate-slide-in-left {
+    animation: slide-in-left 0.6s ease-out;
+  }
+  
+  .animate-slide-in-right {
+    animation: slide-in-right 0.6s ease-out;
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 0.8s ease-out;
+  }
+  
+  .animate-scale-in {
+    animation: scale-in 0.5s ease-out;
+  }
+  
+  .animate-gradient {
+    background-size: 300% 300%;
+    animation: gradient-shift 4s ease infinite;
+  }
+  
+  .animate-shimmer {
+    background-size: 200% auto;
+    animation: shimmer 2s linear infinite;
+  }
+  
+  .animate-bounce-subtle {
+    animation: bounce-subtle 2s ease-in-out infinite;
+  }
+  
+  .animate-rotate-slow {
+    animation: rotate-slow 20s linear infinite;
+  }
+  
+  .hover-lift {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-intense);
+  }
+  
+  .hover-scale {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+  
+  .hover-glow {
+    transition: all 0.3s ease;
+  }
+  
+  .hover-glow:hover {
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.5);
+  }
+  
+  /* Animation delay utilities */
+  .animation-delay-100 { animation-delay: 0.1s; }
+  .animation-delay-200 { animation-delay: 0.2s; }
+  .animation-delay-300 { animation-delay: 0.3s; }
+  .animation-delay-400 { animation-delay: 0.4s; }
+  .animation-delay-500 { animation-delay: 0.5s; }
+  .animation-delay-1000 { animation-delay: 1s; }
+  .animation-delay-2000 { animation-delay: 2s; }
+  .animation-delay-4000 { animation-delay: 4s; }
+
+  /* Mobile-specific optimizations */
+  @media (max-width: 768px) {
+    .chat-message {
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    
+    .chat-input {
+      font-size: 16px; /* Prevents zoom on iOS */
+    }
+  }
+}
